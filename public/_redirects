@@ -1,1 +1,6 @@
+# Hyphenated spelling of the Gangsters Paradise pages -> the URLs the Android app links to
+/gangsters-paradise      /gangstersparadise          301
+/gangsters-paradise/*    /gangstersparadise/:splat   301
+
+# Everything else is served by the single-page site
 /*    /index.html   200
