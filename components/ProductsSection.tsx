@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ExternalLink, Github, ArrowUpRight, Layers, Smartphone } from 'lucide-react';
+import Link from 'next/link';
 
 const products = [
   {
@@ -69,6 +70,23 @@ const products = [
     github: null,
     link: 'https://assetstore.unity.com/packages/tools/integration/live-wallpaper-sdk-for-android-353384',
     metric: { value: 'Published', label: 'Unity Asset Store' },
+  },
+  {
+    id: 'gangstersparadise',
+    title: 'Gangsters Paradise',
+    tagline: 'Android Live Wallpaper',
+    description:
+      'A 3D gangster hideout rendered live on your home screen. Pick the basement or the yakuza room, swap the drinks, guns, ashtrays and smoke on the table, and tilt your phone to look around with gyroscope parallax. No ads, no accounts, no data collected.',
+    status: 'COMING SOON',
+    statusClass: 'text-amber-400',
+    dotClass: 'dot-early',
+    accent: '#f59e0b',
+    tags: ['Unity', 'Android', 'Live Wallpaper', '3D'],
+    size: 'small',
+    github: null,
+    link: null,
+    page: '/gangstersparadise',
+    metric: { value: 'Google Play', label: 'coming soon' },
   },
   {
     id: 'mtgdb',
@@ -191,7 +209,17 @@ export default function ProductsSection() {
                     </div>
                     <div className="text-xs text-zinc-600 mt-0.5">{p.metric.label}</div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-zinc-700 group-hover:text-zinc-400 transition-colors" />
+                  {p.page ? (
+                    <Link
+                      href={p.page}
+                      className="inline-flex items-center gap-1 text-xs font-medium text-zinc-500 hover:text-white transition-colors"
+                    >
+                      Learn more
+                      <ArrowUpRight className="w-4 h-4" />
+                    </Link>
+                  ) : (
+                    <ArrowUpRight className="w-4 h-4 text-zinc-700 group-hover:text-zinc-400 transition-colors" />
+                  )}
                 </div>
               </div>
             </motion.div>
