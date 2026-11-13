@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Gangsters Paradise is an Android live wallpaper by Briare Brothers: a 3D gangster hideout rendered live on your home screen, with swappable props and gyroscope parallax.',
   alternates: {
-    canonical: 'https://briarebrothers.com/gangstersparadise',
+    canonical: 'https://briarebrothers.com/gangsters-paradise',
   },
 };
 
@@ -71,7 +71,7 @@ export default function GangstersParadisePage() {
               </span>
             </a>
             <Link
-              href="/gangstersparadise/privacy-policy"
+              href="/gangsters-paradise/privacy-policy"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-zinc-300 font-medium text-sm hover:bg-white/[0.04] hover:border-white/20 transition-all duration-200"
             >
               <ShieldCheck className="w-4 h-4" />
@@ -107,7 +107,7 @@ export default function GangstersParadisePage() {
               </p>
             </div>
             <Link
-              href="/gangstersparadise/privacy-policy"
+              href="/gangsters-paradise/privacy-policy"
               className="group inline-flex items-center gap-1.5 text-sm font-medium text-zinc-400 hover:text-white transition-colors whitespace-nowrap"
             >
               Read the privacy policy

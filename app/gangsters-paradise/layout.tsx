@@ -1,8 +1,10 @@
 import Link from 'next/link';
 
+// `short` is the header label on phone-width screens, where the full labels don't fit in one row.
 const sectionLinks = [
-  { name: 'Gangsters Paradise', href: '/gangstersparadise' },
-  { name: 'Privacy Policy', href: '/gangstersparadise/privacy-policy' },
+  { name: 'Gangsters Paradise', short: 'Gangsters Paradise', href: '/gangsters-paradise' },
+  { name: 'Privacy Policy', short: 'Privacy', href: '/gangsters-paradise/privacy-policy' },
+  { name: 'Terms of Service', short: 'Terms', href: '/gangsters-paradise/terms-of-service' },
 ];
 
 export default function GangstersParadiseLayout({
@@ -22,14 +24,15 @@ export default function GangstersParadiseLayout({
             <span className="hidden sm:inline font-semibold text-white tracking-tight">Briare Brothers</span>
           </Link>
 
-          <nav className="flex items-center gap-5 text-sm text-zinc-400">
+          <nav className="flex items-center gap-4 sm:gap-5 text-sm text-zinc-400">
             {sectionLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 className="whitespace-nowrap hover:text-white transition-colors duration-200"
               >
-                {link.name}
+                <span className="sm:hidden">{link.short}</span>
+                <span className="hidden sm:inline">{link.name}</span>
               </Link>
             ))}
           </nav>
@@ -48,12 +51,12 @@ export default function GangstersParadiseLayout({
             <span className="text-zinc-700 text-sm">· Wyoming LLC · 2025</span>
           </div>
 
-          <div className="flex items-center gap-6 text-sm text-zinc-600">
-            <Link href="/" className="hover:text-white transition-colors">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-zinc-600">
+            <Link href="/" className="whitespace-nowrap hover:text-white transition-colors">
               Home
             </Link>
             {sectionLinks.map((link) => (
-              <Link key={link.name} href={link.href} className="hover:text-white transition-colors">
+              <Link key={link.name} href={link.href} className="whitespace-nowrap hover:text-white transition-colors">
                 {link.name}
               </Link>
             ))}

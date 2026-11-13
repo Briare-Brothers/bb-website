@@ -85,7 +85,7 @@ const products = [
     size: 'small',
     github: null,
     link: null,
-    page: '/gangstersparadise',
+    page: '/gangsters-paradise',
     metric: { value: 'Google Play', label: 'coming soon' },
   },
   {
