@@ -6,15 +6,15 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // The Android app links to the un-hyphenated /gangstersparadise URLs, so the
-  // hyphenated spelling redirects there. `next dev` applies this rule itself; the
-  // production build is a static export, where Netlify applies the same rule from
-  // public/_redirects.
+  // Gangsters Paradise moved from /gangstersparadise to /gangsters-paradise, and app
+  // builds up to version code 5 link to the old URLs, so they redirect to the new ones.
+  // `next dev` applies this rule itself; the production build is a static export,
+  // where Netlify applies the same rule from public/_redirects.
   async redirects() {
     return [
       {
-        source: '/gangsters-paradise/:path*',
-        destination: '/gangstersparadise/:path*',
+        source: '/gangstersparadise/:path*',
+        destination: '/gangsters-paradise/:path*',
         permanent: true,
       },
     ];

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Marketing site for Briare Brothers. A Next.js 14 App Router site exported as static HTML: a one-page home route with a Three.js background and framer-motion reveals, plus static product pages under `/gangstersparadise`. Node 20 is pinned in `.node-version` and `netlify.toml`.
+Marketing site for Briare Brothers. A Next.js 14 App Router site exported as static HTML: a one-page home route with a Three.js background and framer-motion reveals, plus static product pages under `/gangsters-paradise`, `/enchanted-rose`, `/material-live-wallpaper` and `/reactor`. Node 20 is pinned in `.node-version` and `netlify.toml`.
 
 ## Commands
 
@@ -24,9 +24,9 @@ npm run lint
 
 **Home page, composed of sections.** `app/page.tsx` renders every section in order: Scene3D, Navigation, Hero, ProductsSection, SoftwareSection, AboutSection, ContactSection, Footer. Home navigation is hash anchors only. The nav label "Services" points at `#software`, and `Navigation.tsx` and `Footer.tsx` each keep their own copy of the link list, so section `id`s and both link lists must stay in sync.
 
-**Product pages.** `app/gangstersparadise/` holds the Gangsters Paradise landing page and its privacy policy. Because the home nav is anchor-only, these routes get their own header and footer from `app/gangstersparadise/layout.tsx`, which nests inside the root layout. They are plain server components with no framer-motion, reuse the globals.css classes, and set `alternates.canonical` to `https://briarebrothers.com/...`. The Android app links to the un-hyphenated `/gangstersparadise` URLs, so don't rename them.
+**Product pages.** Each product folder under `app/` holds its legal pages and its own `layout.tsx`. `app/gangsters-paradise/` has the Gangsters Paradise landing page, privacy policy and terms of service. Because the home nav is anchor-only, these routes get their own header and footer from the folder's `layout.tsx`, which nests inside the root layout. They are plain server components with no framer-motion, reuse the globals.css classes, and set `alternates.canonical` to `https://briarebrothers.com/...`. The Android apps link to these URLs from their settings screens, so don't rename them without a redirect.
 
-**Redirects live in two places.** The hyphenated `/gangsters-paradise/*` spelling redirects to `/gangstersparadise/*`. The `redirects()` rule in `next.config.mjs` only applies under `next dev`, because a static export has no server. `public/_redirects` applies the same rule on Netlify, followed by the `/* -> /index.html` catch-all. Change both together.
+**Redirects live in two places.** Gangsters Paradise moved from `/gangstersparadise` to `/gangsters-paradise` on 2026-11-13, and app builds up to version code 5 link to the old privacy policy URL, so `/gangstersparadise/*` redirects to `/gangsters-paradise/*`. The `redirects()` rule in `next.config.mjs` only applies under `next dev`, because a static export has no server. `public/_redirects` applies the same rule on Netlify, followed by the `/* -> /index.html` catch-all. Change both together.
 
 **Scene3D must stay client-only.** `page.tsx` loads it through `next/dynamic` with `ssr: false` because React Three Fiber cannot server-render. `transpilePackages: ['three']` in `next.config.mjs` is part of the same requirement. Importing Scene3D directly breaks the build.
 

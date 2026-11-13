@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     'Privacy policy for the Gangsters Paradise live wallpaper for Android by Briare Brothers. The app collects no personal information and has no internet access.',
   alternates: {
-    canonical: 'https://briarebrothers.com/gangstersparadise/privacy-policy',
+    canonical: 'https://briarebrothers.com/gangsters-paradise/privacy-policy',
   },
 };
 
