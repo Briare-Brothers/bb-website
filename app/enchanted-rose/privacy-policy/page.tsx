@@ -41,8 +41,8 @@ export default function PrivacyPolicyPage() {
       <p className="border-l-2 border-blue-500 pl-5 py-1 text-zinc-300 leading-relaxed">
         <strong className={strongClass}>The short version:</strong> From version 6.0, Enchanted Rose does not collect,
         store, share or sell any personal information. The app has no access to the internet, so nothing about you or
-        your device leaves your phone. Version 5.2 and earlier sent usage and crash data to Google Firebase, as
-        described under “Earlier versions” below.
+        your device leaves your phone. Version 5.2, the version before it, sends usage and crash data to Google
+        Firebase, as described under “Earlier versions” below. Updating to 6.0 stops that.
       </p>
 
       <H2>Who we are</H2>
@@ -108,27 +108,27 @@ export default function PrivacyPolicyPage() {
 
       <H2>Earlier versions</H2>
       <P>
-        Version 5.2 and earlier were built differently. They had internet access and included three Google services:
-        Firebase Analytics, Firebase Crashlytics and Firebase Remote Config. While you used one of those versions, they
-        sent Google:
+        Versions before 6.0 were built on a different framework. Version 5.2, the last of them, has internet access
+        and includes three Google services: Firebase Analytics, Firebase Crashlytics and Firebase Remote Config. While
+        you use it, it sends Google:
       </P>
       <Ul>
         <li>
           <strong className={strongClass}>Usage events</strong>, such as the wallpaper starting or becoming visible;
         </li>
         <li>
-          <strong className={strongClass}>Crash reports</strong>, if the app crashed;
+          <strong className={strongClass}>Crash reports</strong>, if the app crashes;
         </li>
         <li>
           <strong className={strongClass}>Device information</strong> that these services collect as standard: an
           app-instance ID, the device model, Android and app versions, an approximate location (country or region)
-          derived from your IP address and, where Android made it available, the advertising ID.
+          derived from your IP address and, where Android makes it available, the advertising ID.
         </li>
       </Ul>
       <P>
-        We used this information only in aggregate, to see how many people used the wallpaper and to fix crashes. We
-        never sold it, used it for advertising or tried to identify you with it. Google processed it on our behalf under
-        the{' '}
+        Remote Config also downloads configuration for the app from Google. We use this information to count how many
+        people use the wallpaper and to find and fix crashes. We do not sell it or use it for advertising. Google
+        processes it on our behalf under the{' '}
         <a href="https://firebase.google.com/support/privacy" className={linkClass}>
           Firebase privacy and security terms
         </a>{' '}
@@ -136,11 +136,15 @@ export default function PrivacyPolicyPage() {
         <a href="https://policies.google.com/privacy" className={linkClass}>
           Google Privacy Policy
         </a>
-        , and keeps it only for the limited period those services allow.
+        , and keeps it for a limited period set by those services.
       </P>
       <P>
-        Updating to version 6.0 removes these services and stops all collection. Your settings carry over when you
-        update.
+        Version 5.2 also requests Google Play’s billing permission for an optional in-app purchase. Google Play
+        processes that purchase, and the app never sees your payment details.
+      </P>
+      <P>
+        Version 6.0 removes all of these services. Once it is available on Google Play, updating stops all collection,
+        and your settings carry over.
       </P>
 
       <H2>Third parties</H2>
@@ -164,13 +168,12 @@ export default function PrivacyPolicyPage() {
         uninstall the app.
       </P>
       <P>
-        If you used version 5.2 or earlier and want to know what analytics or crash data Google holds for it, or want
+        If you have used an earlier version and want to know what analytics or crash data Google holds for it, or want
         it deleted, email{' '}
         <a href="mailto:hello@briarebrothers.com" className={linkClass}>
           hello@briarebrothers.com
         </a>
-        . The data is not linked to your name or Google account, so we will delete whatever we can identify from the
-        details you give us, within 30 days.
+        . We will delete whatever we can identify from the details you give us within 30 days.
       </P>
 
       <H2>Changes to this policy</H2>
