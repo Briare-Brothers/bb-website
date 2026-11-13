@@ -38,11 +38,11 @@ export default function ContactSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="mailto:briare.brothers@gmail.com"
+                href="mailto:hello@briarebrothers.com"
                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-black font-semibold text-sm hover:bg-zinc-100 transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                briare.brothers@gmail.com
+                hello@briarebrothers.com
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </a>
               <a
