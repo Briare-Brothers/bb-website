@@ -26,7 +26,7 @@ npm run lint
 
 **Product pages.** Each product folder under `app/` holds its legal pages and its own `layout.tsx`. `app/gangsters-paradise/` has the Gangsters Paradise landing page, privacy policy and terms of service. Because the home nav is anchor-only, these routes get their own header and footer from the folder's `layout.tsx`, which nests inside the root layout. They are plain server components with no framer-motion, reuse the globals.css classes, and set `alternates.canonical` to `https://briarebrothers.com/...`. The Android apps link to these URLs from their settings screens, so don't rename them without a redirect.
 
-**Redirects live in two places.** Gangsters Paradise moved from `/gangstersparadise` to `/gangsters-paradise` on 2026-11-13, and app builds up to version code 5 link to the old privacy policy URL, so `/gangstersparadise/*` redirects to `/gangsters-paradise/*`. The `redirects()` rule in `next.config.mjs` only applies under `next dev`, because a static export has no server. `public/_redirects` applies the same rule on Netlify, followed by the `/* -> /index.html` catch-all. Change both together.
+**Redirects live in `next.config.mjs`.** Gangsters Paradise moved from `/gangstersparadise` to `/gangsters-paradise` on 2026-11-13, and app builds up to version code 5 link to the old privacy policy URL, so `/gangstersparadise/*` redirects to `/gangsters-paradise/*`. The `redirects()` rule in `next.config.mjs` is what runs in production: Vercel applies it as a 308 even though the build is a static export, and `next dev` applies it too. `next build` still warns that redirects don't work with `output: 'export'`; that holds for plain static hosts, not Vercel. `public/_redirects` repeats the rule in Netlify's format and has no effect on the live site (see Deployment). Keep it in step while the Netlify files remain.
 
 **Scene3D must stay client-only.** `page.tsx` loads it through `next/dynamic` with `ssr: false` because React Three Fiber cannot server-render. `transpilePackages: ['three']` in `next.config.mjs` is part of the same requirement. Importing Scene3D directly breaks the build.
 
@@ -46,7 +46,14 @@ The `layout.tsx` metadata is currently stale: it still names ErewhonPOS, Nexus F
 
 ## Deployment
 
-Netlify is the live target: `netlify.toml` runs `npm run build` and publishes `out/`, with the redirect rules in `public/_redirects`. `vercel.json` also exists, but its `outputDirectory` is `.next`, which does not match the static export. Treat it as unverified.
+Vercel serves the live site (checked 2026-11-13: responses carry `Server: Vercel`). The Vercel project is `briare-brothers` in the `tys-projects-d93371f8` team, configured by `vercel.json` (`framework: nextjs`). Its `outputDirectory` is `.next`, which doesn't match the `out/` export, but deploys work.
+
+- Each push to a PR branch gets a preview deployment and a "Vercel" check on the PR. Previews are behind Vercel's login (Deployment Protection): `curl` gets a 302 to `vercel.com/sso-api`, so open them in a browser signed in to Vercel.
+- Merging to `main` deploys production. PR #6's pages were live about a minute after the merge.
+- `briarebrothers.com` redirects to `www.briarebrothers.com` (308). Canonical URLs use the bare domain.
+- Unknown paths return a 404 page. Nothing falls back to the home page the way Netlify's `/* -> /index.html` rule would.
+
+`netlify.toml` and `public/_redirects` are Netlify configuration and don't affect the live site. Whether a Netlify site still builds from this repo hasn't been checked.
 
 ## README is stale
 
