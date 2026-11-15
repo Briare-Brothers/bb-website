@@ -1,6 +1,9 @@
 import Link from 'next/link';
 
-const sectionLinks = [{ name: 'Privacy Policy', href: '/material-live-wallpaper/privacy-policy' }];
+const sectionLinks = [
+  { name: 'Privacy Policy', href: '/material-live-wallpaper/privacy-policy' },
+  { name: 'Terms of Service', href: '/material-live-wallpaper/terms-of-service' },
+];
 
 export default function MaterialLiveWallpaperLayout({
   children,
