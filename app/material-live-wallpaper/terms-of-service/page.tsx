@@ -54,8 +54,9 @@ export default function TermsOfServicePage() {
           Google Play Terms of Service
         </a>
         , and refunds follow Google Play’s refund policies. The unlock belongs to the Google account you bought it with
-        and works on the devices where you use that account. To check and restore it, the app uses RevenueCat, as
-        described in the Privacy Policy.
+        and works on the devices where you use that account. To restore it after you reinstall the app or move to a
+        new device, the app checks your Google Play purchase record through the Google Play Store app on your device.
+        If Google Play refunds the purchase, the unlock is removed.
       </P>
       <P>
         If you bought the unlock in an earlier version of Materials LWP, it carries over to the new version on the same
