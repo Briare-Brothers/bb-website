@@ -142,8 +142,9 @@ export default function PrivacyPolicyPage() {
         Each time the app starts, including when Android starts the wallpaper, it asks the Google Play Store app on
         your phone which of these products your Google account owns. It does this whether or not you have bought
         anything. This is how the unlock comes back after you reinstall the app or move to a new phone, including for a
-        purchase made in version 5.2. The app saves the answer on your device, as described under “Settings stored on
-        your device” below. It also confirms each purchase to Google Play, as Google requires.
+        purchase made in version 5.2. The app keeps only a yes-or-no “unlocked” setting from the answer, not a list of
+        what you bought, as described under “Settings stored on your device” below. It also confirms each purchase to
+        Google Play, as Google requires.
       </P>
       <P>
         The app sends nothing about your purchases to us, and it has no server to send them to. Your purchase record is
