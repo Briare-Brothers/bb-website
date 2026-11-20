@@ -124,8 +124,8 @@ export default function PrivacyPolicyPage() {
       <H2>Permissions</H2>
       <P>
         The app requests Google Play’s billing permission so it can offer the in-app purchase, and declares that it
-        looks for Google Play’s billing service on your phone. Google’s billing component brings two of Android’s
-        standard permissions: internet access, and seeing whether the phone is online. It uses them to send its logs.
+        looks for Google Play’s billing service on your phone. It also requests two of Android’s standard permissions:
+        internet access, and seeing whether the phone is online. Google’s billing component uses them to send its logs.
         The app’s other permissions are private ones that Android requires for its own wallpaper service. It requests
         no permission that gives access to your contacts, location, camera, microphone, photos or files.
       </P>
