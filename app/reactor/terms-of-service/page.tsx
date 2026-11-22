@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     'Terms of service for The Reactor live wallpaper for Android by Briare Brothers, including its one-time in-app unlock sold through Google Play.',
   alternates: {
-    canonical: 'https://briarebrothers.com/reactor/terms-of-service',
+    canonical: 'https://www.briarebrothers.com/reactor/terms-of-service',
   },
 };
 

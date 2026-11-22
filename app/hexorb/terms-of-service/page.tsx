@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     'Terms of service for HexOrb 3D, the live wallpaper for Android by Briare Brothers, including its optional one-time in-app purchases sold through Google Play.',
   alternates: {
-    canonical: 'https://briarebrothers.com/hexorb/terms-of-service',
+    canonical: 'https://www.briarebrothers.com/hexorb/terms-of-service',
   },
 };
 

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     'Privacy policy for the Materials LWP live wallpaper for Android by Briare Brothers. The app sends nothing about you to us. Its optional in-app purchase is handled by Google Play, and Google’s billing component in the app sends Google its own logs.',
   alternates: {
-    canonical: 'https://briarebrothers.com/material-live-wallpaper/privacy-policy',
+    canonical: 'https://www.briarebrothers.com/material-live-wallpaper/privacy-policy',
   },
 };
 

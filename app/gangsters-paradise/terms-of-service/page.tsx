@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: 'Gangsters Paradise Terms of Service',
   description: 'Terms of service for the Gangsters Paradise live wallpaper for Android by Briare Brothers.',
   alternates: {
-    canonical: 'https://briarebrothers.com/gangsters-paradise/terms-of-service',
+    canonical: 'https://www.briarebrothers.com/gangsters-paradise/terms-of-service',
   },
 };
 

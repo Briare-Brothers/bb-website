@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     'Privacy policy for The Reactor live wallpaper for Android by Briare Brothers. From version 3.1 the app sends crash reports to Sentry and collects nothing else; Google Play handles its in-app purchase.',
   alternates: {
-    canonical: 'https://briarebrothers.com/reactor/privacy-policy',
+    canonical: 'https://www.briarebrothers.com/reactor/privacy-policy',
   },
 };
 
