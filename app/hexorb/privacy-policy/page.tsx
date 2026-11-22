@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     'Privacy policy for HexOrb 3D, the live wallpaper for Android by Briare Brothers. From version 7.0 the app sends crash reports to Sentry and collects nothing else; Google Play handles its in-app purchases.',
   alternates: {
-    canonical: 'https://briarebrothers.com/hexorb/privacy-policy',
+    canonical: 'https://www.briarebrothers.com/hexorb/privacy-policy',
   },
 };
 

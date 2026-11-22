@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Marketing site for Briare Brothers. A Next.js 14 App Router site exported as static HTML: a one-page home route with a Three.js background and framer-motion reveals, plus static product pages under `/gangsters-paradise`, `/enchanted-rose`, `/material-live-wallpaper` and `/reactor`. Node 20 is pinned in `.node-version` and `netlify.toml`.
+Marketing site for Briare Brothers. A Next.js 14 App Router site exported as static HTML: a one-page home route with a Three.js background and framer-motion reveals, plus static landing and legal pages for the five live wallpapers under `/reactor`, `/enchanted-rose`, `/material-live-wallpaper`, `/hexorb` and `/gangsters-paradise`. Node 20 is pinned in `.node-version` and `netlify.toml`.
 
 ## Commands
 
@@ -24,7 +24,12 @@ npm run lint
 
 **Home page, composed of sections.** `app/page.tsx` renders every section in order: Scene3D, Navigation, Hero, ProductsSection, SoftwareSection, AboutSection, ContactSection, Footer. Home navigation is hash anchors only. The nav label "Services" points at `#software`, and `Navigation.tsx` and `Footer.tsx` each keep their own copy of the link list, so section `id`s and both link lists must stay in sync.
 
-**Product pages.** Each product folder under `app/` holds its legal pages and its own `layout.tsx`. `app/gangsters-paradise/` has the Gangsters Paradise landing page, privacy policy and terms of service. Because the home nav is anchor-only, these routes get their own header and footer from the folder's `layout.tsx`, which nests inside the root layout. They are plain server components with no framer-motion, reuse the globals.css classes, and set `alternates.canonical` to `https://briarebrothers.com/...`. The Android apps link to these URLs from their settings screens, so don't rename them without a redirect.
+**Product pages.** Each wallpaper's folder under `app/` holds its landing page (`page.tsx`), `privacy-policy/`, `terms-of-service/` and a `layout.tsx`. Because the home nav is anchor-only, these routes get their own header and footer: each `layout.tsx` renders `components/AppShell.tsx`, which nests inside the root layout. They are plain server components with no framer-motion, reuse the globals.css classes, and set `alternates.canonical` to `https://www.briarebrothers.com/...` (see Deployment). The Android apps link to these URLs from their settings screens, so don't rename them without a redirect.
+
+- `lib/apps.ts` holds the facts shared by the landing pages, layouts, `app/sitemap.ts` and the home cards: slug, name, package, short and meta descriptions, and the URL helpers (Play URL, legal paths, image paths).
+- `components/AppLanding.tsx` renders every landing page and builds its `metadata` (title, description, canonical, Open Graph, Twitter card) and its `SoftwareApplication` JSON-LD. Each `app/<slug>/page.tsx` passes only that app's copy (intro, features, what's included), taken from section 2 of `Work/<app>/Store Listing/2026/play-listing.md`. Keep "free", "best", "#1", third-party brands and film names out of it.
+- Images live in `public/apps/<slug>/` under fixed names: `icon.png` (512), `screen-1.jpg` to `screen-4.jpg` (1080 × 1920, JPEG quality 82) and `og.jpg` (1200 × 630). Replace a file to change an image; no code change is needed. `scripts/app-images.py` rebuilds them: it converts the screenshots listed in its `SCREENSHOTS` map, writes a placeholder (dark gradient with the app name) for apps not listed where no file exists yet, and draws `og.jpg` from the icon.
+- `app/sitemap.ts` and `app/robots.ts` use `dynamic = 'force-static'`, so the export writes `out/sitemap.xml` and `out/robots.txt`. The sitemap lists the home page and every app's three pages from `lib/apps.ts`.
 
 **Redirects live in `next.config.mjs`.** Gangsters Paradise moved from `/gangstersparadise` to `/gangsters-paradise` on 2026-11-13, and app builds up to version code 5 link to the old privacy policy URL, so `/gangstersparadise/*` redirects to `/gangsters-paradise/*`. The `redirects()` rule in `next.config.mjs` is what runs in production: Vercel applies it as a 308 even though the build is a static export, and `next dev` applies it too. `next build` still warns that redirects don't work with `output: 'export'`; that holds for plain static hosts, not Vercel. `public/_redirects` repeats the rule in Netlify's format and has no effect on the live site (see Deployment). Keep it in step while the Netlify files remain.
 
@@ -33,14 +38,17 @@ npm run lint
 **Reveal pattern.** Every home-page component is `'use client'`. Hero and Navigation animate on mount. The below-the-fold sections (Products, Software, About, Contact) all use the same pattern: a `useRef` on the section container plus framer-motion `useInView(ref, { once: true, amount: ... })` driving `animate`. New home sections should copy this rather than invent another.
 
 **Content is hardcoded data inside components, and some of it is duplicated.** When a product is added, removed, renamed, or changes status, update all of:
-- the `products` array in `components/ProductsSection.tsx` (card content, status, accent hex, store links, and an optional `page` path that renders a "Learn more" link to an internal route)
+- the `products` array in `components/ProductsSection.tsx` (card content, status, accent hex, store links, and an optional `page` path that renders a "Learn more" link to an internal route). `link` renders an "App Store" button and `linkAndroid` a "Google Play" one; the wallpaper cards take their Play URL and `page` from `lib/apps.ts`.
 - the "Products Shipped" stat in `components/Hero.tsx`
 - the "Products" row in the facts list in `components/AboutSection.tsx`
 - `description` and `keywords` in the `metadata` export in `app/layout.tsx`
+- for a live wallpaper, its entry in `lib/apps.ts`, its folder under `app/` and its images under `public/apps/`
+
+"Products Shipped" counts the cards marked LIVE (8 on 2026-11-20: Aboyeur, the Live Wallpaper SDK, MTGDB and the five wallpapers). Before then it counted every card, in development or not.
 
 The Aboyeur order count is duplicated the same way: it appears in the Hero "Orders Processed" stat and twice in the Aboyeur entry in `ProductsSection.tsx` (the `description` text and `metric.value`). Update all three together.
 
-The `layout.tsx` metadata is currently stale: it still names ErewhonPOS, Nexus Files, and EchoPalace, which were renamed (ErewhonPOS became Aboyeur) or removed. Don't treat it as the source of truth for the product list.
+The root `layout.tsx` sets `metadataBase` and the site-wide title, description and keywords. The home page's canonical and Open Graph tags are in `app/page.tsx`, so the legal pages, which set no Open Graph tags, don't inherit them.
 
 **Styling.** Tailwind plus a small set of semantic classes in `app/globals.css`: `.card` (glass panel), `.gradient-text`, `.gradient-text-color`, `.grid-bg`, `.hero-orb`, `.stat-number`, and the status dots `.dot-live` / `.dot-beta` / `.dot-dev` / `.dot-early`. Product status badges pair a `dotClass` with a `statusClass` and an `accent` hex in the product data. Inter is loaded through a Google Fonts `@import` in globals.css. The `@/*` path alias resolves to the repo root.
 
@@ -50,7 +58,7 @@ Vercel serves the live site (checked 2026-11-13: responses carry `Server: Vercel
 
 - Each push to a PR branch gets a preview deployment and a "Vercel" check on the PR. Previews are behind Vercel's login (Deployment Protection): `curl` gets a 302 to `vercel.com/sso-api`, so open them in a browser signed in to Vercel.
 - Merging to `main` deploys production. PR #6's pages were live about a minute after the merge.
-- `briarebrothers.com` redirects to `www.briarebrothers.com` (308). Canonical URLs use the bare domain.
+- `briarebrothers.com` redirects to `www.briarebrothers.com` (308), so every URL the site states about itself uses www: canonicals, `metadataBase`, Open Graph and JSON-LD URLs, the sitemap and robots.txt. The landing pages, sitemap and robots take it from `SITE_URL` in `lib/apps.ts`; the legal pages hardcode their canonicals. A canonical or sitemap entry on the bare domain would point at a redirect, which search engines may ignore or report.
 - Unknown paths return a 404 page. Nothing falls back to the home page the way Netlify's `/* -> /index.html` rule would.
 
 `netlify.toml` and `public/_redirects` are Netlify configuration and don't affect the live site. Whether a Netlify site still builds from this repo hasn't been checked.

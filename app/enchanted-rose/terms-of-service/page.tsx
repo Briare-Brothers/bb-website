@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: 'Enchanted Rose Terms of Service',
   description: 'Terms of service for the Enchanted Rose live wallpaper for Android by Briare Brothers.',
   alternates: {
-    canonical: 'https://briarebrothers.com/enchanted-rose/terms-of-service',
+    canonical: 'https://www.briarebrothers.com/enchanted-rose/terms-of-service',
   },
 };
 

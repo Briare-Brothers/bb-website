@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     'Privacy policy for the Enchanted Rose live wallpaper for Android by Briare Brothers. From version 6.0 the app sends crash reports to Sentry. From version 6.0.1 it also offers optional in-app purchases, which Google Play handles.',
   alternates: {
-    canonical: 'https://briarebrothers.com/enchanted-rose/privacy-policy',
+    canonical: 'https://www.briarebrothers.com/enchanted-rose/privacy-policy',
   },
 };
 

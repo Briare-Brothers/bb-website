@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     'Terms of service for the Materials LWP live wallpaper for Android by Briare Brothers, including its one-time in-app unlock sold through Google Play.',
   alternates: {
-    canonical: 'https://briarebrothers.com/material-live-wallpaper/terms-of-service',
+    canonical: 'https://www.briarebrothers.com/material-live-wallpaper/terms-of-service',
   },
 };
 
