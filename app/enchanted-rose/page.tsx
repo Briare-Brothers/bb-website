@@ -62,6 +62,5 @@ const included: Included = {
 };
 
 export default function EnchantedRosePage() {
-  // Remove appSetupOnly once version 6.1 is live: 6.0.1 can crash in Android 16's wallpaper picker.
-  return <AppLanding app={app} intro={intro} features={features} included={included} appSetupOnly />;
+  return <AppLanding app={app} intro={intro} features={features} included={included} />;
 }
