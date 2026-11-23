@@ -149,7 +149,7 @@ const products = [
     title: 'Gangsters Paradise',
     tagline: 'Android Live Wallpaper',
     description:
-      'A 3D mafia hideout on your home screen. Pick the basement or the yakuza den, choose the drink, smoke, gun and ashtray on the table, and tilt your phone to look around. A wall clock keeps your real time. No ads, no accounts, no data collected.',
+      'A 3D mafia hideout on your home screen. Pick the basement or the yakuza den, choose the drink, smoke, gun and ashtray on the table, and tilt your phone to look around. A wall clock keeps your real time. No ads and no accounts.',
     status: 'LIVE',
     statusClass: 'text-green-400',
     dotClass: 'dot-live',
