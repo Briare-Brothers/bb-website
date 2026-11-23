@@ -61,8 +61,8 @@ export default function GangstersParadisePage() {
       features={features}
       included={included}
       privacy={{
-        title: 'No data collected',
-        body: 'No accounts, no analytics, no ads, no purchases and no internet access. Your settings stay on your phone.',
+        title: 'Crash reports only',
+        body: 'No accounts, no analytics, no ads and no purchases. From the update that adds crash reporting, the app sends crash reports so we can fix problems.',
       }}
     />
   );
