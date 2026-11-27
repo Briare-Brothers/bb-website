@@ -179,10 +179,11 @@ export default function PrivacyPolicyPage() {
       <P>
         We use usage data only to understand how the wallpaper is used and to improve it. We don’t sell it or use it
         for advertising. Google processes it for us under the{' '}
-        <a href="https://firebase.google.com/terms/data-processing-terms" className={linkClass}>
-          Firebase data processing terms
+        <a href="https://business.safety.google/adsprocessorterms/" className={linkClass}>
+          Google Ads Data Processing Terms
         </a>
-        , and we have turned off the settings that would let Google use it for its own purposes. We also copy it into
+        , which are the terms that cover Google Analytics, and we have turned off the settings that would let Google
+        use it for its own purposes. We also copy it into
         our own database on Google Cloud, stored in the United States, to make our reports. It’s encrypted on its way
         to Google. Google Analytics keeps it for at most 14 months, and we delete our copy after at most 14 months.
         Reports we make from it keep only totals, such as how many phones used the wallpaper in a week.
