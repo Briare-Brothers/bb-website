@@ -60,10 +60,6 @@ export default function GangstersParadisePage() {
       intro={intro}
       features={features}
       included={included}
-      privacy={{
-        title: 'No data collected',
-        body: 'No accounts, no analytics, no ads, no purchases and no internet access. Your settings stay on your phone.',
-      }}
     />
   );
 }

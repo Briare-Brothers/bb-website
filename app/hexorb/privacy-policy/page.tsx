@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'HexOrb Privacy Policy',
   description:
-    'Privacy policy for HexOrb 3D, the live wallpaper for Android by Briare Brothers. From version 7.0 the app sends crash reports to Sentry and collects nothing else; Google Play handles its in-app purchases.',
+    'Privacy policy for HexOrb 3D, the live wallpaper for Android by Briare Brothers. From version 7.0 the app sends crash reports to Sentry. Versions with a “Share anonymous usage data” switch also send usage data to Google Analytics for Firebase, and that switch turns both off. Google Play handles its in-app purchases.',
   alternates: {
     canonical: 'https://www.briarebrothers.com/hexorb/privacy-policy',
   },
@@ -36,14 +36,16 @@ export default function PrivacyPolicyPage() {
         <span className="gradient-text">Privacy Policy</span>
       </h1>
       <p className="text-zinc-400">HexOrb 3D live wallpaper for Android</p>
-      <p className="text-sm text-zinc-600 mt-1 mb-10">Effective November 18, 2026</p>
+      <p className="text-sm text-zinc-600 mt-1 mb-10">Effective November 27, 2026</p>
 
       <p className="border-l-2 border-blue-500 pl-5 py-1 text-zinc-300 leading-relaxed">
-        <strong className={strongClass}>The short version:</strong> From version 7.0, the only thing HexOrb sends from
-        your phone is a crash report when something goes wrong. A report says what failed, describes your phone, and
-        carries a random ID for your copy of the app. It never includes your name, contacts or precise location. The
-        app has no ads, accounts or usage tracking, and we never sell your information. Google Play handles the
-        optional in-app purchases.
+        <strong className={strongClass}>The short version:</strong> From version 7.0, HexOrb sends a crash report from
+        your phone when something goes wrong. Versions with a “Share anonymous usage data” switch at the bottom of the
+        settings screen also send usage data: how long the wallpaper is on screen each day, which settings you choose,
+        and which of the app’s screens you open. Both carry a random ID for your copy of the app instead of anything
+        that names you, and that one switch turns both off. Nothing the app sends includes your name, contacts, precise
+        location or advertising ID. The app has no ads or accounts, and we never sell your information. Google Play
+        handles the optional in-app purchases.
       </p>
 
       <H2>Who we are</H2>
@@ -59,18 +61,20 @@ export default function PrivacyPolicyPage() {
 
       <H2>Information we collect</H2>
       <P>
-        In version 7.0 and later, the app collects only crash and error reports, which it sends to Sentry, the
-        crash-reporting service we use. They’re described under “Crash reports” below. The app has:
+        In version 7.0 and later, the app collects crash and error reports, which it sends to Sentry, the
+        crash-reporting service we use. They’re described under “Crash reports” below. Versions with a “Share anonymous
+        usage data” switch also collect usage data, which they send to Google Analytics for Firebase, as described
+        under “Usage data” below. The app has:
       </P>
       <Ul>
         <li>no user accounts or sign-in;</li>
-        <li>no analytics or usage tracking, so we don’t learn when or how you use the wallpaper;</li>
         <li>no advertising and no advertising ID;</li>
         <li>no server of its own.</li>
       </Ul>
       <P>
         Version 6.4 and earlier also included Google’s Firebase Analytics and Firebase Crashlytics. Version 7.0 removes
-        both.
+        both. Versions with the “Share anonymous usage data” switch bring back Firebase Analytics only, in the form
+        described under “Usage data” below.
       </P>
 
       <H2>Crash reports</H2>
@@ -124,22 +128,89 @@ export default function PrivacyPolicyPage() {
         </a>
         , and deletes them automatically after its retention period, which is at most 90 days.
       </P>
-      <P>The app has no setting to turn crash reports off. Uninstalling the app stops them.</P>
+      <P>
+        In versions with the “Share anonymous usage data” switch, turning it off also turns crash reports off, as
+        described under “Turning usage data and crash reports off” below. Earlier versions have no setting for this;
+        uninstalling the app stops their reports.
+      </P>
+
+      <H2>Usage data</H2>
+      <P>
+        Versions of the app with a “Share anonymous usage data” switch at the bottom of the settings screen also send
+        usage data. It tells us how many phones use the wallpaper, how long it’s on screen and which settings people
+        choose, so we know what to improve. The app sends it to Google Analytics for Firebase, the analytics service we
+        use. The switch starts on, and you can turn it off at any time. Usage data includes:
+      </P>
+      <Ul>
+        <li>
+          <strong className={strongClass}>A daily summary:</strong> for each day the wallpaper was used, how many minutes
+          it was on screen, how many times it appeared, how many times you changed a setting, and whether it was your
+          home screen wallpaper. It’s sent the next time the wallpaper runs on a later day.
+        </li>
+        <li>
+          <strong className={strongClass}>Your settings:</strong> with each daily summary, the value of each choice on
+          the settings screen, such as the orb color, swipe mode and brightness, and whether you have unlocked the
+          premium settings.
+        </li>
+        <li>
+          <strong className={strongClass}>Wallpaper changes:</strong> when you set HexOrb as your live wallpaper, or
+          replace it with another one.
+        </li>
+        <li>
+          <strong className={strongClass}>The app’s own screens:</strong> when you open the app’s launcher screen,
+          settings screen or purchase screen, and for how long. On the purchase screen, also when you start a purchase
+          and which product you chose, and whether the purchase went through, was cancelled or was restored from an
+          earlier one. Google Analytics also records each completed purchase with the product, its price and currency.
+        </li>
+        <li>
+          <strong className={strongClass}>Details Google Analytics adds:</strong> a random app-instance ID that Google
+          Analytics creates for your copy of the app, when the app was first opened, the app’s version, the phone’s make,
+          model and Android version, its language and screen size, how the app was installed (for example from Google
+          Play), and an approximate location (country, region and city), which Google works out from the IP address the
+          data comes from. Google Analytics doesn’t store the IP address.
+        </li>
+      </Ul>
+      <P>
+        Usage data never includes your name, email address, Google account, contacts, files, photos, precise location,
+        advertising ID or payment details, or anything you do in other apps. The app doesn’t request the advertising ID
+        permission, and Google Analytics’ advertising features are off.
+      </P>
+      <P>
+        We use usage data only to understand how the wallpaper is used and to improve it. We don’t sell it or use it
+        for advertising. Google processes it for us under the{' '}
+        <a href="https://firebase.google.com/terms/data-processing-terms" className={linkClass}>
+          Firebase data processing terms
+        </a>
+        , and we have turned off the settings that would let Google use it for its own purposes. We also copy it into
+        our own database on Google Cloud, stored in the United States, to make our reports. It’s encrypted on its way
+        to Google. Google Analytics keeps it for at most 14 months, and we delete our copy after at most 14 months.
+        Reports we make from it keep only totals, such as how many phones used the wallpaper in a week.
+      </P>
+
+      <H2>Turning usage data and crash reports off</H2>
+      <P>
+        In versions with the “Share anonymous usage data” switch, turning it off stops usage data and crash reports
+        together: the app stops counting and sends nothing more to Google Analytics or to Sentry, and crash reports
+        waiting on your phone stay unsent. Turning it back on starts both again. Turning it off doesn’t delete what was
+        already sent; “Your rights and deleting your data” below says how to ask us to.
+      </P>
 
       <H2>Settings stored on your device</H2>
       <P>
         The app remembers the choices you make on its settings screen: the orb color, swipe mode, spin sensitivity,
         double-tap action, brightness and battery color, and whether you have unlocked the premium settings. These
         choices are saved in the app’s private storage on your device, and they are removed when you clear the app’s
-        data or uninstall the app. They are sent nowhere.
+        data or uninstall the app. They stay on your phone, except that versions sharing usage data send them with the
+        daily summary, as described under “Usage data” above.
       </P>
       <P>
         When you update from an earlier version, the app copies that version’s saved settings into the new version’s
         storage, on the phone. Nothing is sent.
       </P>
       <P>
-        The same private storage holds the random install ID and any crash reports waiting to be sent. Clearing the
-        app’s data or uninstalling the app removes them too.
+        The same private storage holds the random install ID, any crash reports waiting to be sent, the day’s usage
+        counts until they’re sent, and the app-instance ID Google Analytics created. Clearing the app’s data or
+        uninstalling the app removes them too, and the app then gets new IDs.
       </P>
 
       <H2>Device features the app uses</H2>
@@ -172,32 +243,39 @@ export default function PrivacyPolicyPage() {
       <H2>Permissions</H2>
       <P>
         The app requests two of Android’s standard permissions, internet access and seeing whether the phone is online,
-        which Google Play’s in-app purchases and crash reports use. It also requests Google Play’s billing permission
-        for the purchases, and private permissions that Android requires for the app’s own wallpaper service. It
-        requests no permission that gives access to your contacts, location, camera, microphone or files.
+        which Google Play’s in-app purchases, crash reports and usage data use. It also requests Google Play’s billing
+        permission for the purchases, and private permissions that Android requires for the app’s own wallpaper
+        service. Versions with the “Share anonymous usage data” switch also request two permissions for Google
+        Analytics: one to keep the
+        phone awake for a moment so it can finish sending, and Google Play’s install referrer permission, which lets it
+        ask Google Play how the app was installed. The app requests no permission that gives access to your contacts,
+        location, camera, microphone or files.
       </P>
 
       <H2>Third parties</H2>
       <P>
         The app is distributed through Google Play. Google may collect information about downloads, installs, purchases
-        and crashes under its own privacy policy. Version 7.0 and later includes one third-party service that collects
-        data: Sentry, described under “Crash reports” above. The app is built with the Unity engine, with Unity’s
-        analytics, crash reporting and performance reporting switched off, and it shares nothing with other companies.
+        and crashes under its own privacy policy. Version 7.0 and later includes Sentry, described under “Crash reports”
+        above, and versions with the “Share anonymous usage data” switch also include Google Analytics for Firebase,
+        described under “Usage data” above. Both handle data for us as our service providers. The app is built with the
+        Unity engine, with Unity’s analytics, crash reporting and performance reporting switched off, and we share
+        nothing with other companies.
       </P>
 
       <H2>Children</H2>
       <P>
-        The app collects nothing from anyone beyond the crash reports described above. These contain no name, contact
-        details or advertising ID, whoever is using the phone.
+        The app collects nothing from anyone beyond the crash reports and usage data described above. These contain no
+        name, contact details or advertising ID, whoever is using the phone.
       </P>
 
       <H2>Your rights and deleting your data</H2>
       <P>
-        The only information we hold is crash reports, and Sentry deletes those after at most 90 days. They contain no
-        name or contact details, so we usually can’t tell which reports came from you. If you email us your phone’s
-        model and roughly when the app crashed, we will delete the matching reports within 30 days. To remove the
-        settings, install ID and waiting reports stored on your device, clear the app’s data in Android’s settings or
-        uninstall the app.
+        We hold two kinds of information: crash reports, which Sentry deletes after at most 90 days, and usage data,
+        which we delete after at most 14 months. Neither contains your name or contact details, so we usually can’t
+        tell which records came from you. If you email us your phone’s model and roughly when you used the app or when
+        it crashed, we will delete the matching crash reports and usage data within 30 days. To stop sending either,
+        turn off “Share anonymous usage data” in the settings. To remove the settings, IDs, usage counts and waiting
+        reports stored on your device, clear the app’s data in Android’s settings or uninstall the app.
       </P>
 
       <H2>Changes to this policy</H2>
