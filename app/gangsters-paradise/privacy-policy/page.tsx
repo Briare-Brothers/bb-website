@@ -134,7 +134,11 @@ export default function PrivacyPolicyPage() {
         Versions of the app with a “Share anonymous usage data” switch at the bottom of the settings screen also send
         usage data. It tells us how many phones use the wallpaper, how long it’s on screen and which settings people
         choose, so we know what to improve. The app sends it to Google Analytics for Firebase, the analytics service we
-        use. The switch starts on, and you can turn it off at any time. Usage data includes:
+        use. Outside the European Economic Area (EEA) and the United Kingdom, the switch starts on, and you can turn it
+        off at any time. In the EEA and the UK it starts off, and the app sends no usage data and no crash reports until
+        you turn it on. To tell where your phone is, the app checks your SIM card’s country, your mobile network’s
+        country, your time zone and your phone’s language, on the phone itself, without sending them anywhere. If it
+        can’t tell, the switch starts off. Usage data includes:
       </P>
       <Ul>
         <li>
