@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Enchanted Rose Privacy Policy',
   description:
-    'Privacy policy for the Enchanted Rose live wallpaper for Android by Briare Brothers. From version 6.0 the app sends crash reports to Sentry. From version 6.0.1 it also offers optional in-app purchases, which Google Play handles.',
+    'Privacy policy for the Enchanted Rose live wallpaper for Android by Briare Brothers. From version 6.0 the app sends crash reports to Sentry. From version 6.0.1 it also offers optional in-app purchases, which Google Play handles. Versions with a “Share anonymous usage data” switch also send usage data to Google Analytics for Firebase, and that switch turns both usage data and crash reports off.',
   alternates: {
     canonical: 'https://www.briarebrothers.com/enchanted-rose/privacy-policy',
   },
@@ -36,18 +36,20 @@ export default function PrivacyPolicyPage() {
         <span className="gradient-text">Privacy Policy</span>
       </h1>
       <p className="text-zinc-400">Enchanted Rose live wallpaper for Android</p>
-      <p className="text-sm text-zinc-600 mt-1 mb-10">Effective November 19, 2026</p>
+      <p className="text-sm text-zinc-600 mt-1 mb-10">Effective November 27, 2026</p>
 
       <p className="border-l-2 border-blue-500 pl-5 py-1 text-zinc-300 leading-relaxed">
         <strong className={strongClass}>The short version:</strong> From version 6.0, Enchanted Rose sends a crash
         report from your phone when something goes wrong. A report says what failed, describes your phone, and carries
-        a random ID for your copy of the app. It never includes your name, contacts or precise location. Version 6.0.1
-        adds optional in-app purchases, an unlock and donations, sold through Google Play. For them, the app checks
-        with Google Play what your Google account owns, and Google’s billing component in the app sends Google its own
-        logs. The app never sees your payment details and sends nothing about your purchases to us. It has no ads,
-        accounts or usage tracking, and we never sell your information. Version 5.2, the last version before 6.0,
-        sends usage and crash data to Google Firebase, as described under “Earlier versions” below. Updating to 6.0 or
-        later stops that.
+        a random ID for your copy of the app. Version 6.0.1 adds optional in-app purchases, an unlock and donations,
+        sold through Google Play. For them, the app checks with Google Play what your Google account owns, and Google’s
+        billing component in the app sends Google its own logs. The app never sees your payment details. Versions with
+        a “Share anonymous usage data” switch at the bottom of the settings screen also send usage data: how long the
+        wallpaper is on screen each day, which settings you choose, which of the app’s screens you open and the steps
+        of a purchase, with a random ID instead of anything that names you. That one switch turns usage data and crash
+        reports off. Nothing the app sends includes your name, contacts, precise location or advertising ID. It has no
+        ads or accounts, and we never sell your information. Version 5.2, the last version before 6.0, sends usage and
+        crash data to Google Firebase, as described under “Earlier versions” below.
       </p>
 
       <H2>Who we are</H2>
@@ -66,11 +68,12 @@ export default function PrivacyPolicyPage() {
         In version 6.0 and later, the app collects crash and error reports, which it sends to Sentry, the
         crash-reporting service we use. They’re described under “Crash reports” below. Version 6.0 collects nothing
         else. Version 6.0.1 and later also offers in-app purchases through Google Play, and what they exchange with
-        Google is described under “In-app purchases” below. The app has:
+        Google is described under “In-app purchases” below. Versions with a “Share anonymous usage data” switch also
+        collect usage data, which they send to Google Analytics for Firebase, as described under “Usage data” below.
+        The app has:
       </P>
       <Ul>
         <li>no user accounts or sign-in;</li>
-        <li>no analytics or usage tracking, so we don’t learn when or how you use the wallpaper;</li>
         <li>no advertising and no advertising ID;</li>
         <li>no server of its own.</li>
       </Ul>
@@ -125,7 +128,73 @@ export default function PrivacyPolicyPage() {
         </a>
         , and deletes them automatically after its retention period, which is at most 90 days.
       </P>
-      <P>The app has no setting to turn crash reports off. Uninstalling the app stops them.</P>
+      <P>
+        In versions with the “Share anonymous usage data” switch, turning it off also turns crash reports off, as
+        described under “Turning usage data and crash reports off” below. Earlier versions have no setting for this;
+        uninstalling the app stops their reports.
+      </P>
+
+      <H2>Usage data</H2>
+      <P>
+        Versions of the app with a “Share anonymous usage data” switch at the bottom of the settings screen also send
+        usage data. It tells us how many phones use the wallpaper, how long it’s on screen and which settings people
+        choose, so we know what to improve. The app sends it to Google Analytics for Firebase, the analytics service we
+        use. The switch starts on, and you can turn it off at any time. Usage data includes:
+      </P>
+      <Ul>
+        <li>
+          <strong className={strongClass}>A daily summary:</strong> for each day the wallpaper was used, how many minutes
+          it was on screen, how many times it appeared, how many times you changed a setting, and whether it was your
+          home screen wallpaper. It’s sent the next time the wallpaper runs on a later day.
+        </li>
+        <li>
+          <strong className={strongClass}>Your settings:</strong> with each daily summary, the value of each choice on
+          the settings screen, such as the petal color, background and rotation speed, and whether you have unlocked the
+          extra settings.
+        </li>
+        <li>
+          <strong className={strongClass}>Wallpaper changes:</strong> when you set Enchanted Rose as your live
+          wallpaper, or replace it with another one.
+        </li>
+        <li>
+          <strong className={strongClass}>The app’s own screens:</strong> when you open the app’s launcher screen,
+          settings screen or purchase screen, and for how long. On the purchase screen, also when you start a purchase
+          and which product you chose (the unlock or a donation), and whether the purchase went through, was cancelled
+          or was restored from an earlier one. Google Analytics also records each completed purchase with the product,
+          its price and currency.
+        </li>
+        <li>
+          <strong className={strongClass}>Details Google Analytics adds:</strong> a random app-instance ID that Google
+          Analytics creates for your copy of the app, when the app was first opened, the app’s version, the phone’s make,
+          model and Android version, its language and screen size, how the app was installed (for example from Google
+          Play), and an approximate location (country, region and city), which Google works out from the IP address the
+          data comes from. Google Analytics doesn’t store the IP address.
+        </li>
+      </Ul>
+      <P>
+        Usage data never includes your name, email address, Google account, contacts, files, photos, precise location,
+        advertising ID or payment details, or anything you do in other apps. The app doesn’t request the advertising ID
+        permission, and Google Analytics’ advertising features are off.
+      </P>
+      <P>
+        We use usage data only to understand how the wallpaper is used and to improve it. We don’t sell it or use it
+        for advertising. Google processes it for us under the{' '}
+        <a href="https://firebase.google.com/terms/data-processing-terms" className={linkClass}>
+          Firebase data processing terms
+        </a>
+        , and we have turned off the settings that would let Google use it for its own purposes. We also copy it into
+        our own database on Google Cloud, stored in the United States, to make our reports. It’s encrypted on its way
+        to Google. Google Analytics keeps it for at most 14 months, and we delete our copy after at most 14 months.
+        Reports we make from it keep only totals, such as how many phones used the wallpaper in a week.
+      </P>
+
+      <H2>Turning usage data and crash reports off</H2>
+      <P>
+        In versions with the “Share anonymous usage data” switch, turning it off stops usage data and crash reports
+        together: the app stops counting and sends nothing more to Google Analytics or to Sentry, and crash reports
+        waiting on your phone stay unsent. Turning it back on starts both again. Turning it off doesn’t delete what was
+        already sent; “Your rights and deleting your data” below says how to ask us to.
+      </P>
 
       <H2>In-app purchases</H2>
       <P>
@@ -147,8 +216,9 @@ export default function PrivacyPolicyPage() {
         Google Play, as Google requires.
       </P>
       <P>
-        The app sends nothing about your purchases to us, and it has no server to send them to. Your purchase record is
-        kept by Google, and you can see it in your Google Play order history. As the seller, we can look up orders in
+        Apart from the purchase steps in usage data, which the “Share anonymous usage data” switch turns off, the app
+        sends nothing about your purchases to us, and it has no server of its own. Your purchase record is kept by
+        Google, and you can see it in your Google Play order history. As the seller, we can look up orders in
         our Google Play Console, and we do so only to handle refunds and support requests.
       </P>
       <P>
@@ -161,18 +231,20 @@ export default function PrivacyPolicyPage() {
       <P>
         The app remembers the choices you make on its settings screen: the petal color, background, pedestal style,
         glass jar and jar type, rotation speed, sparkles, charging effects, the swipe, double-tap and free life control
-        options, and the gyroscope options. These choices are saved in the app’s private storage on your device. They
-        are never transmitted anywhere, and they are removed when you clear the app’s data or uninstall the app.
+        options, and the gyroscope options. These choices are saved in the app’s private storage on your device, and
+        they are removed when you clear the app’s data or uninstall the app. They stay on your phone, except that
+        versions sharing usage data send them with the daily summary, as described under “Usage data” above.
       </P>
       <P>
-        The same private storage holds the random install ID and any crash reports waiting to be sent. Clearing the
-        app’s data or uninstalling the app removes them too.
+        The same private storage holds the random install ID, any crash reports waiting to be sent, the day’s usage
+        counts until they’re sent, and the app-instance ID Google Analytics created. Clearing the app’s data or
+        uninstalling the app removes them too, and the app then gets new IDs.
       </P>
       <P>
         From version 6.0.1, it also holds a yes-or-no “unlocked” setting, so the unlocked settings work without a
-        connection, and a count the app uses to notice that a purchase has been refunded. These are never transmitted
-        either. Clearing the app’s data or uninstalling the app removes them, and the unlock comes back the next time
-        the app checks with Google Play.
+        connection, and a count the app uses to notice that a purchase has been refunded. These stay on your phone,
+        except that usage data says whether the extra settings are unlocked. Clearing the app’s data or uninstalling
+        the app removes them, and the unlock comes back the next time the app checks with Google Play.
       </P>
       <P>
         When you update from an earlier version, the app copies your existing settings into its new settings screen.
@@ -203,9 +275,13 @@ export default function PrivacyPolicyPage() {
         Version 6.0 and later requests two of Android’s standard permissions: internet access, and seeing whether the
         phone is online. In version 6.0 both are only for sending crash reports. From version 6.0.1, Google’s billing
         component uses them for its logs too, and the app also requests Google Play’s billing permission for the
-        in-app purchases and declares that it looks for Google Play’s billing service on your phone. Its other
-        permissions are private ones that Android requires for the app’s own wallpaper service. It requests no
-        permission that gives access to your contacts, location, camera, microphone or files.
+        in-app purchases and declares that it looks for Google Play’s billing service on your phone. Versions with the
+        “Share anonymous usage data” switch use internet access and the online check for usage data as well, and
+        request two more permissions
+        for Google Analytics: one to keep the phone awake for a moment so it can finish sending, and Google Play’s
+        install referrer permission, which lets it ask Google Play how the app was installed. The app’s other
+        permissions are private ones that Android requires for its own wallpaper service. It requests no permission
+        that gives access to your contacts, location, camera, microphone or files.
       </P>
 
       <H2>Earlier versions</H2>
@@ -248,37 +324,43 @@ export default function PrivacyPolicyPage() {
         Version 6.0 removes all of these services, the purchases included, so all of its settings are free. Updating to
         6.0 or later stops the usage events, Firebase’s crash reports and the advertising ID, and your settings carry
         over. Version 6.0 then sends only the crash reports described under “Crash reports” above. Version 6.0.1 brings
-        the purchases back, without the Firebase services, as described under “In-app purchases” above.
+        the purchases back, without the Firebase services, as described under “In-app purchases” above. Versions with
+        the “Share anonymous usage data” switch bring back Firebase Analytics only, without the advertising ID and with
+        that switch to turn it off, as described under “Usage data” above.
       </P>
 
       <H2>Third parties</H2>
       <P>
         The app is distributed through Google Play. Google may collect information about downloads, installs, purchases
-        and crashes under its own privacy policy. Version 6.0 includes one third-party service that collects data:
-        Sentry, described under “Crash reports” above. Version 6.0.1 and later also includes the Google Play Billing
-        Library, which checks your purchases with Google Play and sends Google its own logs, as described under
-        “In-app purchases” above. The app is built with the Unity engine, but it isn’t
-        connected to Unity’s online services, so Unity’s own analytics and crash reporting don’t run in it.
+        and crashes under its own privacy policy. Version 6.0 and later includes Sentry, described under “Crash
+        reports” above, and versions with the “Share anonymous usage data” switch also include Google Analytics for
+        Firebase, described under “Usage data” above. Both handle data for us as our service providers. Version 6.0.1
+        and later also includes the Google Play Billing Library, which checks your purchases with Google Play and
+        sends Google its own logs, as described under “In-app purchases” above. The app is built with the Unity
+        engine, but it isn’t connected to Unity’s online services, so Unity’s own analytics and crash reporting don’t
+        run in it.
       </P>
 
       <H2>Children</H2>
       <P>
-        Version 6.0 collects nothing from anyone beyond the crash reports described above. These contain no name,
-        contact details or advertising ID, whoever is using the phone. Version 6.0.1 adds only what its in-app
-        purchases exchange with Google, described under “In-app purchases” above. Purchases are made through Google
-        Play, under the Google account’s own settings, and the app sends nothing about them to us. If you believe a
-        child used an earlier version and you want its data deleted, contact us as described below.
+        Version 6.0 and later collect nothing from anyone beyond the crash reports and usage data described above.
+        These contain no name, contact details or advertising ID, whoever is using the phone. Version 6.0.1 and later
+        also exchange with Google what their in-app purchases need, described under “In-app purchases” above.
+        Purchases are made through Google Play, under the Google account’s own settings. If you believe a child used an
+        earlier version and you want its data deleted, contact us as described below.
       </P>
 
       <H2>Your rights and deleting your data</H2>
       <P>
-        For version 6.0 and later, the information we hold is crash reports, and Sentry deletes those after at most 90
-        days. They contain no name or contact details, so we usually can’t tell which reports came from you. If you
-        email us your phone’s model and roughly when the app crashed, we will delete the matching reports within 30
-        days. If you buy something in version 6.0.1 or later, we can also see the order in Google Play Console. The
+        For version 6.0 and later, we hold two kinds of information: crash reports, which Sentry deletes after at most
+        90 days, and usage data, which we delete after at most 14 months. Neither contains your name or contact
+        details, so we usually can’t tell which records came from you. If you email us your phone’s model and roughly
+        when you used the app or when it crashed, we will delete the matching crash reports and usage data within 30
+        days. To stop sending either, turn off “Share anonymous usage data” in the settings. If you buy something in
+        version 6.0.1 or later, we can also see the order in Google Play Console. The
         purchase record itself belongs to your Google account and is held by Google under its own privacy policy, so
-        the unlock comes back if you install the app again. To remove the settings, the “unlocked” setting, the
-        install ID and waiting reports stored on your device, clear the app’s data in Android’s settings or uninstall
+        the unlock comes back if you install the app again. To remove the settings, the “unlocked” setting, the IDs,
+        usage counts and waiting reports stored on your device, clear the app’s data in Android’s settings or uninstall
         the app.
       </P>
       <P>
