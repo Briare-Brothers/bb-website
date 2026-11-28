@@ -136,10 +136,12 @@ export default function PrivacyPolicyPage() {
         usage data. It tells us how many phones use the wallpaper, how long it’s on screen and which settings people
         choose, so we know what to improve. The app sends it to Google Analytics for Firebase, the analytics service we
         use. Outside the European Economic Area (EEA) and the United Kingdom, the switch starts on, and you can turn it
-        off at any time. In the EEA and the UK it starts off, and the app sends no usage data and no crash reports until
-        you turn it on. To tell where your phone is, the app checks your SIM card’s country, your mobile network’s
-        country, your time zone and your phone’s language, on the phone itself, without sending them anywhere. If it
-        can’t tell, the switch starts off. Usage data includes:
+        off at any time. In the EEA and the UK it starts off: the first time you open the app or the wallpaper’s
+        settings, the app asks whether you want to share usage data and crash reports, and it sends neither until you
+        agree or turn the switch on. If you close the question without answering, it asks again another time. To tell
+        where your phone is, the app checks your SIM card’s country, your mobile network’s country, your time zone and
+        your phone’s language, on the phone itself, without sending them anywhere. If it can’t tell, the switch starts
+        off and the app asks in the same way. Usage data includes:
       </P>
       <Ul>
         <li>
